@@ -1,2 +1,15 @@
-body { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 12px/1.231 Arial, Helvetica, sans-serif;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}

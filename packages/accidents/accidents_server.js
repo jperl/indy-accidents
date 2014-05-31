@@ -17,7 +17,7 @@ Accidents.populate = function (endDate) {
     // and insert them to the accidents collection.
     var transformer = transform(function (record, callback) {
         var datePart = record[9], time = record[10], ordinal = record[1],
-            dateStr= datePart.substring(0, 10) + ' ' + time + ' ' + ordinal,
+            dateStr = datePart.substring(0, 10) + ' ' + time + ' ' + ordinal,
             date = new Date(dateStr),
             injured = record[13], deaths = record[14],
             lat = record[26], lon = record[27];
@@ -31,12 +31,13 @@ Accidents.populate = function (endDate) {
 
         var accident = {
             date: date,
-            lat: lat,
-            lon: lon,
+            lat: parseFloat(lat),
+            lon: parseFloat(lon),
             severity: severity
         };
 
-        if (accident.date < endDate) {
+        // Make sure there is a lat, lon, and the date is before the end date.
+        if (!isNaN(accident.lat) && !isNaN(accident.lon) && accident.date < endDate) {
             Fiber(function () {
                 // Look up the weather by hour
                 var hour = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), 0, 0, 0);
@@ -60,3 +61,11 @@ Accidents.populate = function (endDate) {
 
     input.pipe(parse()).pipe(transformer);
 };
+
+Meteor.publish('accidents', function (filter) {
+    if (!filter) filter = {};
+
+    return Accidents.find(filter);
+
+//    return Accidents.find(filter, { limit: 100 });
+});

@@ -8,10 +8,6 @@ Accident.Severity = {
     Fatal: 2
 };
 
-Accident.data = function () {
-    return Accidents.find();
-};
-
 Accident.mockData = [
     {
         lat: 40.6953767,
