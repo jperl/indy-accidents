@@ -15,7 +15,12 @@ Template.map.rendered = function () {
 
     var map = L.map('map', {
         doubleClickZoom: false
-    }).setView([49.25044, -123.137], 13);
+    }).setView([40.6953767, -73.9492066], 13);
 
     L.tileLayer.provider('Thunderforest.Outdoors').addTo(map);
+
+    // Add data
+
+    var accidents = Accidents.data();
+    console.table(accidents);
 };
