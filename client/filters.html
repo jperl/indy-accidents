@@ -1,0 +1,7 @@
+<template name='filters'>
+    <nav class='filter-ui'>
+        {{#each types}}
+        <div><input type="checkbox" id="{{this}}" checked><label for="{{this}}">{{this}}</label></div>
+        {{/each}}
+    </nav>
+</template>

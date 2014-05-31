@@ -66,6 +66,4 @@ Meteor.publish('accidents', function (filter) {
     if (!filter) filter = {};
 
     return Accidents.find(filter);
-
-//    return Accidents.find(filter, { limit: 100 });
 });
