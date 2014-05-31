@@ -1,7 +1,7 @@
 /**
  * Populate weather observations from the openweathermap api.
  */
-var populateFromApi = function (startDate, endDate) {
+Weather.populate = function (startDate, endDate) {
     // Page through weather data until we are past the end date.
     var pastEndDate = false;
     while (!pastEndDate) {
