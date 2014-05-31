@@ -3,6 +3,6 @@ Template.map.rendered = function () {
         .setView([40, -74.50], 9);
 
     // Add data
-    var accidents = Accidents.data();
-    console.table(accidents);
+//    var accidents = Accident.data().fetch();
+//    console.log(accidents);
 };

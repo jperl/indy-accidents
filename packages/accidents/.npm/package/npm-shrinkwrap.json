@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "csv-parse": {
+      "version": "0.0.4"
+    },
+    "stream-transform": {
+      "version": "0.0.2"
+    }
+  }
+}
