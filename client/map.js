@@ -5,9 +5,22 @@ var map, layer, latLngs = {};
 Template.map.rendered = function () {
     // Initialize the map
     map = L.mapbox.map('map', 'indianapolis.basemap')
-        .setView([39.17744827, -86.55998992], 11);
+        .setView([39.7974122, -86.150761], 11);
 
-    layer = L.heatLayer([], { maxZoom: 12 });
+    layer = L.heatLayer([], {
+        opacity: 0.2,
+        radius: 15,
+        blur: 15,
+        gradient: {
+            0.35: "rgb(0,0,255)", //blue
+            0.45: "rgb(0,255,255)", //shiny green
+            0.55: "rgb(0,255,0)", //green
+            0.85: "yellow",
+            0.95: "rgb(255,0,0)" //red
+        },
+        maxZoom: 13
+    });
+
     map.addLayer(layer);
 
     // Add the accidents as markers on the map.
